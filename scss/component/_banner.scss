@@ -1,0 +1,144 @@
+@use '../abstracts' as *;
+
+.hero {
+  background-color: $bg-grey;
+  padding-top: $spacing-lg;
+
+  .wrapper {
+    background-image: url('/Images/banner-img.png');
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-top: 2 * $spacing-lg;
+    padding-bottom: 3 * $spacing-xl;
+
+  }
+
+  &__content {
+    width: 43%;
+    padding-bottom: $spacing-xxl;
+
+    &__consultant-area {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      list-style-type: disc;
+      max-width: 76%;
+
+      @media (max-width: $breakpoint-md) {
+        max-width: 100%;
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        grid-template-columns: repeat(2, 1fr);
+
+        li {
+          margin-left: $spacing-sm;
+
+          &::marker {
+            color: $bg-grey !important;
+          }
+        }
+      }
+    }
+
+    h4::before {
+      content: "";
+      width: 59px;
+      height: 5px;
+      background-color: #febb0c;
+      position: absolute;
+      left: 0;
+      top: 11px;
+    }
+
+    p {
+      padding: $spacing-xxl 0;
+    }
+
+    .button {
+      margin-bottom: 1.5 * $spacing-xxl;
+    }
+
+    li {
+      font-size: 1.2rem;
+      color: $dark-grey;
+
+      &:nth-child(1)::marker,
+      &:nth-child(4)::marker {
+        color: $bg-grey;
+      }
+
+      &::marker {
+        color: $light-orange;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .img-wrapper {
+    img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}
+
+.highlight__wrapper {
+  position: relative;
+}
+
+.highlight-area {
+  display: grid;
+  position: absolute;
+  gap: $spacing-xl;
+  right: 8%;
+  left: 9%;
+  top: 20%;
+  transform: translateY(-28%);
+  grid-template-columns: repeat(4, 1fr);
+
+  .highlight-cards {
+    background-color: $white;
+    padding: $spacing-xl;
+    box-shadow: 0 4px 20px 5px rgb(0 0 0 / 11%);
+    transition: background-color 0.3s ease-in;
+
+    p {
+      padding: $spacing-xl 0;
+      border-bottom: 4px solid $light-orange;
+      line-height: 1.4;
+    }
+
+    h3 {
+      transition: 0.3s ease-in;
+    }
+
+    &:hover {
+      background-color: $dark-green;
+
+      h3 {
+        color: $light-orange;
+      }
+
+      p {
+        color: $white;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    left: 0;
+    right: 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: repeat(2, 1fr);
+    transform: translateY(-10%);
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

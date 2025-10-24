@@ -1,0 +1,179 @@
+@use '../abstracts' as *;
+
+header {
+  background-color: $bg-grey;
+
+  .header-wrapper {
+    @include flex-between;
+    position: relative;
+  }
+
+  .nav-menu {
+    @include flex-between
+  }
+}
+
+.nav-menu {
+  li {
+    a {
+      padding: $spacing-xxl;
+
+      &:hover,
+      &.is-active {
+        color: $light-orange;
+      }
+    }
+
+    &:first-child a {
+      padding-left: 0;
+    }
+  }
+}
+
+.sign-in-section {
+  @include flex-between;
+
+  li {
+    a {
+      padding: $spacing-xxl;
+
+    }
+  }
+}
+
+.button {
+  @include flex-between;
+  background-color: $dark-green;
+  padding: 1rem 2rem !important;
+  border-radius: 50px;
+  height: 50px;
+  line-height: 20px;
+  color: $white;
+  border: 2px solid $dark-green;
+  width: fit-content;
+
+  &:hover {
+    background-color: transparent;
+    border: 2px solid $dark-green;
+    color: $black;
+    transition: 0.5s ease-in;
+  }
+}
+
+.navbar-toggle {
+  background: transparent;
+  cursor: pointer;
+  padding: 1rem;
+  display: none;
+
+  .bar {
+    display: block;
+    margin: 4px;
+    background: black;
+    height: 2px;
+    width: 32px;
+    transition: all 0.3s ease;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .nav-menu {
+    display: none !important;
+    position: absolute;
+    top: 160px;
+    right: 0;
+    width: 100%;
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.32);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    animation: SlideDown 0.3s ease-in forwards;
+    padding: $spacing-xl;
+    border-top: 1px solid var($black);
+
+    &.active {
+      display: block !important;
+    }
+
+    &:not(.active) {
+      animation: SlideDown 0.3s ease reverse forwards;
+    }
+
+    li {
+      a {
+        color: $white;
+        font-weight: 600;
+
+        &:hover {
+          color: $dark-green;
+        }
+
+        &.is-active {
+          color: $dark-green
+        }
+      }
+    }
+  }
+
+  .sign-in-section {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1rem;
+    z-index: 10;
+
+    li {
+      a {
+        color: $white;
+
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  .navbar-toggle {
+    display: block;
+    z-index: 12;
+    padding: 0;
+    border: none;
+
+    &.active {
+      .bar {
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+
+        &:nth-child(3) {
+          transform: translateY(-5px) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  @keyframes SlideDown {
+    0% {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

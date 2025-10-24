@@ -1,0 +1,83 @@
+@use '../abstracts/variables' as *;
+@use '../base/fonts' as *;
+
+body {
+  font-family: "Lato";
+  color: $dark-grey;
+  font-weight: 400;
+}
+
+h1 {
+  font-family: "Lato";
+  font-weight: 900;
+  font-size: clamp(2.5rem, 70%, 3.5rem);
+  text-transform: uppercase;
+  color: $black;
+  transform: scaleY(1.5);
+  line-height: 1;
+  padding: $spacing-xl 0;
+}
+
+h3 {
+  font-family: "Lato";
+  font-weight: 900;
+  color: $dark-green;
+  width: 25%;
+  font-size: 1.5rem;
+  transform: scaleY(1.5);
+  line-height: 1;
+}
+
+h4 {
+  font-family: "Lato";
+  font-weight: 900;
+  color: $dark-green;
+  font-size: 1.2rem;
+  font-weight: 500;
+  position: relative;
+  padding-left: 78px;
+  padding-bottom: $spacing-xl;
+}
+
+a,
+p {
+  font-size: 1.2rem;
+  color: $dark-grey;
+  text-align: justify;
+  line-height: 1.7;
+  transition: 0.3s ease-in;
+}
+
+@media (max-width: $breakpoint-xxl) {
+  html {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 0 $spacing-xxl;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  html {
+    font-size: $font-md;
+  }
+
+  .container {
+    padding: 0 $spacing-xxl;
+  }
+  p, 
+  li {
+    color: $black!important;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  html {
+    font-size: $font-sm;
+  }
+
+  .container {
+    padding: 0 $spacing-lg;
+  }
+}
