@@ -8,12 +8,10 @@ header {
     position: relative;
   }
 
-  .nav-menu {
-    @include flex-between
-  }
 }
 
 .nav-menu {
+  @include flex-between;
   @include list-link-padding;
 
   li {

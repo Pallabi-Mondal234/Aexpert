@@ -21,25 +21,25 @@ a {
 
 @font-face {
   font-family: "Lato";
-  src: url("/fonts/Lato/Lato-Regular.ttf") format("truetype");
+  src: url("../fonts/Lato/Lato-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Lato";
-  src: url("/fonts/Lato/Lato-Bold.ttf") format("truetype");
+  src: url("../fonts/Lato/Lato-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Lato";
-  src: url("/fonts/Lato/Lato-Black.ttf") format("truetype");
+  src: url("../fonts/Lato/Lato-Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
 }
 @font-face {
   font-family: "Lato";
-  src: url("/fonts/Lato/Lato-Italic.ttf") format("truetype");
+  src: url("../fonts/Lato/Lato-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
 }
@@ -52,7 +52,7 @@ body {
 h1 {
   font-family: "Lato";
   font-weight: 900;
-  font-size: clamp(2.5rem, 70%, 3.5rem);
+  font-size: clamp(3.5rem, 70%, 3.5rem);
   text-transform: uppercase;
   color: #3d3d3d;
   transform: scaleY(1.5);
@@ -83,7 +83,7 @@ h4 {
 
 a,
 p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #666666;
   text-align: justify;
   line-height: 1.7;
@@ -127,12 +127,12 @@ header .header-wrapper {
   align-items: center;
   position: relative;
 }
-header .nav-menu {
+
+.nav-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .nav-menu li a {
   padding: 2rem;
 }
@@ -270,7 +270,7 @@ header .nav-menu {
   padding-top: 1rem;
 }
 .hero .wrapper {
-  background-image: url("/Images/banner-img.png");
+  background-image: url("../Images/banner-img.png");
   background-size: contain;
   background-position: right;
   background-repeat: no-repeat;
@@ -307,7 +307,7 @@ header .nav-menu {
 .hero__content h4::before {
   content: "";
   width: 59px;
-  height: 5px;
+  height: 4px;
   background-color: #febb0c;
   position: absolute;
   left: 0;
@@ -320,7 +320,7 @@ header .nav-menu {
   margin-bottom: 3rem;
 }
 .hero__content li {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #666666;
 }
 .hero__content li:nth-child(1)::marker, .hero__content li:nth-child(4)::marker {

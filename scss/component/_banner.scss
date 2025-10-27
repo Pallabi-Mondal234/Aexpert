@@ -5,7 +5,7 @@
   padding-top: $spacing-lg;
 
   .wrapper {
-    background-image: url('/Images/banner-img.png');
+    background-image: url('../Images/banner-img.png');
     background-size: contain;
     background-position: right;
     background-repeat: no-repeat;
@@ -45,7 +45,7 @@
     h4::before {
       content: "";
       width: 59px;
-      height: 5px;
+      height: 4px;
       background-color: #febb0c;
       position: absolute;
       left: 0;
@@ -61,7 +61,7 @@
     }
 
     li {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: $dark-grey;
 
       &:nth-child(1)::marker,
