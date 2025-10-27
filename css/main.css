@@ -207,6 +207,7 @@ header .nav-menu {
   }
   .nav-menu.active {
     display: block !important;
+    animation: SlideDown 0.3s ease-in forwards;
   }
   .nav-menu:not(.active) {
     animation: SlideDown 0.3s ease reverse forwards;
@@ -215,10 +216,7 @@ header .nav-menu {
     color: #ffffff;
     font-weight: 600;
   }
-  .nav-menu li a:hover {
-    color: #007a82;
-  }
-  .nav-menu li a.is-active {
+  .nav-menu li a:hover, .nav-menu li a.is-active {
     color: #007a82;
   }
   .sign-in-section {

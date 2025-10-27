@@ -14,10 +14,10 @@ header {
 }
 
 .nav-menu {
+  @include list-link-padding;
+
   li {
     a {
-      padding: $spacing-xxl;
-
       &:hover,
       &.is-active {
         color: $light-orange;
@@ -32,13 +32,7 @@ header {
 
 .sign-in-section {
   @include flex-between;
-
-  li {
-    a {
-      padding: $spacing-xxl;
-
-    }
-  }
+  @include list-link-padding;
 }
 
 .button {
@@ -94,10 +88,11 @@ header {
 
     &.active {
       display: block !important;
+      @include mobile-menu-animation($is-active: true);
     }
 
     &:not(.active) {
-      animation: SlideDown 0.3s ease reverse forwards;
+      @include mobile-menu-animation($is-active: false);
     }
 
     li {
@@ -105,12 +100,9 @@ header {
         color: $white;
         font-weight: 600;
 
-        &:hover {
-          color: $dark-green;
-        }
-
+        &:hover,
         &.is-active {
-          color: $dark-green
+          color: $dark-green;
         }
       }
     }

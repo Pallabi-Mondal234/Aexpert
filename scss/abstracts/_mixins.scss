@@ -1,5 +1,20 @@
+@use './variables' as *;
 @mixin flex-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@mixin list-link-padding($padding: $spacing-xxl) {
+  li {
+    a {
+      padding: $padding;
+    }
+  }
+}
+@mixin mobile-menu-animation($is-active) {
+  @if $is-active {
+    animation: SlideDown 0.3s ease-in forwards;
+  } @else {
+    animation: SlideDown 0.3s ease reverse forwards;
+  }
 }
