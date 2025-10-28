@@ -38,6 +38,10 @@ a {
   font-style: normal;
 }
 @font-face {
+  font-family: "Bebas";
+  src: url("../../fonts/Bebas_Neue/BebasNeue-Regular.ttf") format("truetype");
+}
+@font-face {
   font-family: "Lato";
   src: url("../fonts/Lato/Lato-Italic.ttf") format("truetype");
   font-weight: 400;
@@ -50,23 +54,21 @@ body {
 }
 
 h1 {
-  font-family: "Lato";
-  font-weight: 900;
-  font-size: clamp(3.5rem, 70%, 3.5rem);
+  font-family: "Bebas";
+  font-size: clamp(2.5rem, 5vw, 5rem);
   text-transform: uppercase;
   color: #3d3d3d;
-  transform: scaleY(1.5);
   line-height: 1;
-  padding: 1.5rem 0;
+  letter-spacing: 5px;
+  font-weight: 500;
 }
 
 h3 {
-  font-family: "Lato";
-  font-weight: 900;
+  font-family: "Bebas";
+  font-weight: 500;
   color: #007a82;
   width: 25%;
-  font-size: 1.5rem;
-  transform: scaleY(1.5);
+  font-size: clamp(1.6rem, 2.5vw, 2.6rem);
   line-height: 1;
 }
 
@@ -134,7 +136,7 @@ header .header-wrapper {
   align-items: center;
 }
 .nav-menu li a {
-  padding: 2rem;
+  padding: 1.5rem;
 }
 .nav-menu li a:hover, .nav-menu li a.is-active {
   color: #febb0c;
@@ -149,7 +151,7 @@ header .header-wrapper {
   align-items: center;
 }
 .sign-in-section li a {
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .button {
@@ -162,13 +164,13 @@ header .header-wrapper {
   height: 50px;
   line-height: 20px;
   color: #ffffff;
-  border: 2px solid #007a82;
+  border: 1px solid #007a82;
   width: -moz-fit-content;
   width: fit-content;
 }
 .button:hover {
   background-color: transparent;
-  border: 2px solid #007a82;
+  border: 1px solid #007a82;
   color: #3d3d3d;
   transition: 0.5s ease-in;
 }
@@ -192,14 +194,12 @@ header .header-wrapper {
   .nav-menu {
     display: none !important;
     position: absolute;
-    top: 160px;
+    top: 100%;
     right: 0;
     width: 100%;
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.32);
-    -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
+    background-color: #ededed;
     z-index: 10;
-    text-align: center;
     transition: 0.3s ease-in-out;
     animation: SlideDown 0.3s ease-in forwards;
     padding: 1.5rem;
@@ -212,20 +212,16 @@ header .header-wrapper {
   .nav-menu:not(.active) {
     animation: SlideDown 0.3s ease reverse forwards;
   }
-  .nav-menu li a {
-    color: #ffffff;
-    font-weight: 600;
-  }
-  .nav-menu li a:hover, .nav-menu li a.is-active {
-    color: #007a82;
+  .nav-menu li:first-child a {
+    padding-left: 1.5rem;
   }
   .sign-in-section {
     display: none;
     position: absolute;
     top: 100%;
     right: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    gap: 1rem;
+    background: #ededed;
     text-align: center;
     padding: 1rem;
     z-index: 10;
@@ -270,25 +266,33 @@ header .header-wrapper {
   padding-top: 1rem;
 }
 .hero .wrapper {
-  background-image: url("../Images/banner-img.png");
-  background-size: contain;
-  background-position: right;
-  background-repeat: no-repeat;
-  padding-top: 2rem;
-  padding-bottom: 4.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 991px) {
+  .hero .wrapper {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
 }
 .hero__content {
-  width: 43%;
-  padding-bottom: 2rem;
+  max-width: 45%;
+  padding-bottom: 5rem;
+}
+@media (max-width: 991px) {
+  .hero__content {
+    max-width: 70%;
+    padding-bottom: 8rem;
+  }
 }
 .hero__content__consultant-area {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  list-style-type: disc;
   max-width: 76%;
 }
-@media (max-width: 991px) {
+@media (max-width: 1316px) {
   .hero__content__consultant-area {
     max-width: 100%;
   }
@@ -298,10 +302,16 @@ header .header-wrapper {
     grid-template-columns: repeat(2, 1fr);
   }
   .hero__content__consultant-area li {
-    margin-left: 0.25rem;
+    margin-left: 1rem;
+    list-style-type: disc;
   }
   .hero__content__consultant-area li::marker {
-    color: #ededed !important;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #febb0c;
+  }
+  .hero__content__consultant-area li::after {
+    background-color: #ededed !important;
   }
 }
 .hero__content h4::before {
@@ -314,7 +324,7 @@ header .header-wrapper {
   top: 11px;
 }
 .hero__content p {
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
 .hero__content .button {
   margin-bottom: 3rem;
@@ -323,18 +333,33 @@ header .header-wrapper {
   font-size: 1.1rem;
   color: #666666;
 }
-.hero__content li:nth-child(1)::marker, .hero__content li:nth-child(4)::marker {
-  color: #ededed;
+.hero__content li:nth-child(3)::after, .hero__content li:nth-child(6)::after {
+  background-color: #ededed;
 }
-.hero__content li::marker {
-  color: #febb0c;
+.hero__content li::after {
+  content: "";
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  background-color: #febb0c;
   font-size: 1.5rem;
+  border-radius: 50%;
+  margin-left: 2rem;
+}
+@media (max-width: 1316px) {
+  .hero__content li::after {
+    margin-left: 1.5rem;
+  }
+}
+.hero__content li:nth-child(4)::after {
+  margin-left: 2.6rem;
 }
 .hero .img-wrapper img {
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  max-width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: block;
+  height: auto;
 }
 
 .highlight__wrapper {
@@ -361,6 +386,8 @@ header .header-wrapper {
   padding: 1.5rem 0;
   border-bottom: 4px solid #febb0c;
   line-height: 1.4;
+  font-size: 1rem;
+  text-align: left;
 }
 .highlight-area .highlight-cards h3 {
   transition: 0.3s ease-in;
@@ -375,12 +402,6 @@ header .header-wrapper {
   color: #ffffff;
 }
 @media (max-width: 991px) {
-  .highlight-area {
-    left: 0;
-    right: 0;
-  }
-}
-@media (max-width: 768px) {
   .highlight-area {
     grid-template-columns: repeat(2, 1fr);
     transform: translateY(-10%);

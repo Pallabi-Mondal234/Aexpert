@@ -18,7 +18,10 @@
   font-weight: 900;
   font-style: normal;
 }
-
+@font-face {
+  font-family: 'Bebas';
+  src: url('../../fonts/Bebas_Neue/BebasNeue-Regular.ttf') format('truetype');
+}
 @font-face {
   font-family: 'Lato';
   src: url('../fonts/Lato/Lato-Italic.ttf') format('truetype');
