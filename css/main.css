@@ -165,7 +165,6 @@ header .header-wrapper {
   line-height: 20px;
   color: #ffffff;
   border: 1px solid #007a82;
-  width: -moz-fit-content;
   width: fit-content;
 }
 .button:hover {
@@ -192,7 +191,6 @@ header .header-wrapper {
 
 @media (max-width: 991px) {
   .nav-menu {
-    display: none !important;
     position: absolute;
     top: 100%;
     right: 0;
@@ -200,17 +198,18 @@ header .header-wrapper {
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.32);
     background-color: #ededed;
     z-index: 10;
-    transition: 0.3s ease-in-out;
-    animation: SlideDown 0.3s ease-in forwards;
+    transition: all 0.3s ease-in-out;
     padding: 1.5rem;
-    border-top: 1px solid var(#3d3d3d);
+    opacity: 0;
+    transform: translateY(-15px);
+    pointer-events: none;
+    flex-direction: column;
+    align-items: flex-start;
   }
   .nav-menu.active {
-    display: block !important;
-    animation: SlideDown 0.3s ease-in forwards;
-  }
-  .nav-menu:not(.active) {
-    animation: SlideDown 0.3s ease reverse forwards;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
   .nav-menu li:first-child a {
     padding-left: 1.5rem;
@@ -234,6 +233,7 @@ header .header-wrapper {
   }
   .sign-in-section.active {
     display: flex;
+    background-color: transparent;
   }
   .navbar-toggle {
     display: block;
@@ -249,16 +249,6 @@ header .header-wrapper {
   }
   .navbar-toggle.active .bar:nth-child(3) {
     transform: translateY(-5px) rotate(-45deg);
-  }
-  @keyframes SlideDown {
-    0% {
-      transform: translateY(-15px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
   }
 }
 .hero {
@@ -356,8 +346,7 @@ header .header-wrapper {
 }
 .hero .img-wrapper img {
   max-width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   display: block;
   height: auto;
 }

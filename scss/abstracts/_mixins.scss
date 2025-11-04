@@ -13,13 +13,3 @@
     }
   }
 }
-
-@mixin mobile-menu-animation($is-active) {
-  @if $is-active {
-    animation: SlideDown 0.3s ease-in forwards;
-  }
-
-  @else {
-    animation: SlideDown 0.3s ease reverse forwards;
-  }
-}
